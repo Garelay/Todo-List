@@ -7,15 +7,15 @@ import Todolist from "./components/Todolist";
 
 function App() {
 
-  const [input, setInput] = useState("")
-  const [todos, setTodos] = useState([{id:1, task: "test", completed:false}])
+  // const [input, setInput] = useState("")
+  const [todos, setTodos] = useState([{id:1, task: "test", completed:false,edit:false}])
   
   return (
     <div className="App">
      <header>My todo list</header>
      <Form 
-     input={input}
-     setInput={setInput}
+    //  input={input}
+    //  setInput={setInput}
      todos={todos}
      setTodos={setTodos}/>
      <Todolist todos={todos} setTodos={setTodos}/>

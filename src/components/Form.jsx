@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 // import Todo from './Todo'
 
-function Form({input,setInput,todos,setTodos}) {
+function Form({todos,setTodos}) {
+    const [input, setInput] = useState("")
     
     const handleChange = e => {
         setInput(e.target.value)
@@ -13,7 +14,7 @@ function Form({input,setInput,todos,setTodos}) {
         if (input === ""){
             return
         }
-        const newTodos = [...todos, {id: uuidv4(), task: input, copleted:false}]
+        const newTodos = [...todos, {id: uuidv4(), task: input, copleted:false, edit:false}]
         await setTodos(newTodos);
         setInput("")        
       }

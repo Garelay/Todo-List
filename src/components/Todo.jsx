@@ -1,4 +1,5 @@
 import React from 'react'
+import UpdateForm from './UpdateForm'
 function Todo({todo, todos, setTodos}) {
     const handleComplete = () =>{
         setTodos(todos.map((item)=>{
@@ -13,6 +14,22 @@ function Todo({todo, todos, setTodos}) {
     const handleDelete = () =>{
         setTodos(todos.filter((item)=>item.id !== todo.id))
     }
+    const handleEdit = () =>{
+        setTodos(todos.map((item)=>{
+            if (item.id===todo.id){
+                return {
+                    ...item, edit: !item.edit
+                }
+            }
+            return item
+        }))
+    }
+
+    if (todo.edit) {
+        return (
+        <UpdateForm todo={todo} todos={todos} setTodos={setTodos} />
+        )
+    }
 
     return (
         <div className={`todo-item ${todo.completed ? "completed" : ""}`}>
@@ -22,6 +39,9 @@ function Todo({todo, todos, setTodos}) {
             </button>
             <button className="delete-btn" onClick={handleDelete}>
                 d
+            </button>
+            <button className="edit-btn" onClick={handleEdit}>
+                e
             </button>
         </div>
     )
