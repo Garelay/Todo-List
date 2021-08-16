@@ -8,7 +8,7 @@ import Todolist from "./components/Todolist";
 function App() {
 
   const [input, setInput] = useState("")
-  const [todos, setTodos] = useState([{id:1, task: "test"}])
+  const [todos, setTodos] = useState([{id:1, task: "test", completed:false}])
   
   return (
     <div className="App">
@@ -18,7 +18,7 @@ function App() {
      setInput={setInput}
      todos={todos}
      setTodos={setTodos}/>
-     <Todolist todos={todos}/>
+     <Todolist todos={todos} setTodos={setTodos}/>
     </div>
   );
 }

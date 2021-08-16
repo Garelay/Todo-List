@@ -13,11 +13,9 @@ function Form({input,setInput,todos,setTodos}) {
         if (input === ""){
             return
         }
-        const newTodos = [...todos, {id: uuidv4(),task: input}]
+        const newTodos = [...todos, {id: uuidv4(), task: input, copleted:false}]
         await setTodos(newTodos);
-        console.log(todos);
-        setInput("")
-        
+        setInput("")        
       }
     
     return (
