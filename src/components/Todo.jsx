@@ -1,5 +1,8 @@
 import React from 'react'
 import UpdateForm from './UpdateForm'
+import {TiInputCheckedOutline, TiEdit, TiDeleteOutline} from 'react-icons/ti'
+
+
 function Todo({todo, todos, setTodos}) {
     const handleComplete = () =>{
         setTodos(todos.map((item)=>{
@@ -32,18 +35,18 @@ function Todo({todo, todos, setTodos}) {
     }
 
     return (
-        <div className={`todo-item ${todo.completed ? "completed" : ""}`}>
+        <li className={`todo-item ${todo.completed ? "completed" : ""}`}>
             {todo.task}
             <button className="complete-btn" onClick={handleComplete}>
-                c
+                <TiInputCheckedOutline/>
             </button>
             <button className="edit-btn" onClick={handleEdit}>
-                e
+                <TiEdit/>
             </button>
             <button className="delete-btn" onClick={handleDelete}>
-                d
+                <TiDeleteOutline/>
             </button>
-        </div>
+        </li>
     )
 }
 

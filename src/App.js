@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Form from "./components/Form";
 import Todolist from "./components/Todolist";
-
+import './App.css'
 function App() {
 
   const [todos, setTodos] = useState([{id:1, task: "Test this app", completed:false,edit:false}])
