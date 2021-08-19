@@ -37,11 +37,11 @@ function Todo({todo, todos, setTodos}) {
             <button className="complete-btn" onClick={handleComplete}>
                 c
             </button>
-            <button className="delete-btn" onClick={handleDelete}>
-                d
-            </button>
             <button className="edit-btn" onClick={handleEdit}>
                 e
+            </button>
+            <button className="delete-btn" onClick={handleDelete}>
+                d
             </button>
         </div>
     )

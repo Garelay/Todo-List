@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 function UpdateForm({todo, todos, setTodos}) {
-        const [input, setInput] = useState("")    
+        const [input, setInput] = useState(todo.task)    
         const handleChange = e => {
             setInput(e.target.value)            
         }
