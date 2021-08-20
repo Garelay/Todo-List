@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import {IoCheckmarkDoneOutline} from 'react-icons/io5';
 
 function UpdateForm({todo, todos, setTodos}) {
         const [input, setInput] = useState(todo.task)    
@@ -21,7 +22,9 @@ function UpdateForm({todo, todos, setTodos}) {
     return (
         <form className= "update-form" onSubmit={handleUpdate}> 
             <input type="text" className="update-input" value={input} onChange={handleChange}/>
-            <button className="update-btn">u</button>
+            <button className="update-btn">
+                <IoCheckmarkDoneOutline/>
+            </button>
         </form>
     )
 }

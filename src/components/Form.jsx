@@ -24,16 +24,16 @@ function Form({todos,setTodos,setFilterStatus,filteredTodos}) {
     return (
         <div className="form-container"> 
             <form className="form" onSubmit={handleSubmit}>
-                <input type="text" className="input" placeholder="add a task" value={input} onChange={handleChange}/>
+                <input type="text" className="input" placeholder="Add a task" value={input} onChange={handleChange}/>
                 <button className="add">
                     <GoDiffAdded/>
                 </button>
                 
             </form>
             <select className = "filter-select" onChange={handleFilterStatusChange}>
-                <option value="all">all</option>
-                <option value="completed">completed</option>
-                <option value="uncompleted">uncompleted</option>
+                <option value="all">All</option>
+                <option value="completed">Completed</option>
+                <option value="uncompleted">Uncompleted</option>
             </select>
         </div>
  

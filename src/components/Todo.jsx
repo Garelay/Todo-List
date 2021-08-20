@@ -36,14 +36,16 @@ function Todo({todo, todos, setTodos}) {
 
     return (
         <li className={`todo-item ${todo.completed ? "completed" : ""}`}>
-            {todo.task}
-            <button className="complete-btn" onClick={handleComplete}>
+            <span className="todo-item-text">
+                {todo.task}
+            </span>
+            <button className="complete-btn" onClick={handleComplete} title="Mark as completed">
                 <TiInputCheckedOutline/>
             </button>
-            <button className="edit-btn" onClick={handleEdit}>
+            <button className="edit-btn" onClick={handleEdit} title="Edit the task">
                 <TiEdit/>
             </button>
-            <button className="delete-btn" onClick={handleDelete}>
+            <button className="delete-btn" onClick={handleDelete} title="Delete the task">
                 <TiDeleteOutline/>
             </button>
         </li>
