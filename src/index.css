@@ -8,6 +8,9 @@ body {
   box-sizing: border-box;
   background: linear-gradient(to top right, #7798F8, #77F8CD);
 }
+body > *{
+  box-sizing: border-box;
+}
 #root{
   height: 100vh;
   display: flex;
@@ -16,6 +19,10 @@ body {
 }
 svg {
   vertical-align: middle;
+  height: 100%;
+  margin-bottom: 2px;
+  /* width: 100%; */
+
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

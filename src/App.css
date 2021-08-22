@@ -37,13 +37,19 @@
   );
 }
 .App button {
-  padding: 0;
+  padding: 1px 0 0 0;
 }
 .todo-item {
   margin-top: 1rem;
 }
+.todo-item button {
+  padding: 3px 0 0 0;
+}
 .todo-item:hover{
   background-color: rgba(255, 255, 255, 0.7);
+}
+.completed{
+  text-decoration: line-through;
 }
 
 .todo-item-text {
@@ -51,10 +57,14 @@
 }
 @media (max-width: 450px) {
   .App {
+    min-width: vw;
     padding: 1rem;
-    font-size: 1rem;
+    /* font-size: 1rem; */
   }
-  .App input, button, select {
+  input.input {
+    width: 12rem;
+}
+  /* .App input, button, select {
     font-size: 1rem;
-  }
+  } */
 }
