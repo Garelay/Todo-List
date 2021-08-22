@@ -16,6 +16,7 @@ function App() {
     else {
       setTodos(JSON.parse(localStorage.getItem("todos")))
     }
+    // eslint-disable-next-line
   },[])
   //on change of todos change local storage
   useEffect(()=>{
