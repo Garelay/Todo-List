@@ -6,8 +6,10 @@ import {GoDiffAdded} from 'react-icons/go';
 function Form({todos,setTodos,setFilterStatus,filteredTodos}) {
     const [input, setInput] = useState("")
     const focusRef = useRef(null)
+
+    //focusses on main input when first rendered
     useEffect(()=>{
-        handleClick()
+        focusRef.current.focus()
     },[])
     
     const handleChange = e => {
@@ -20,8 +22,9 @@ function Form({todos,setTodos,setFilterStatus,filteredTodos}) {
         }
         const newTodos = [...todos, {id: uuidv4(), task: input, copleted:false, edit:false}]
         await setTodos(newTodos)
-        setInput("")      
+        setInput("")
       }
+    // used to focus on main input when user press add btn, since for some people it's more intuitive
     const handleClick = () =>{
         focusRef.current.focus()
     }
