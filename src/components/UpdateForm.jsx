@@ -4,9 +4,30 @@ import {IoCheckmarkDoneOutline} from 'react-icons/io5';
 function UpdateForm({todo, todos, setTodos}) {
         const [input, setInput] = useState(todo.task)
         const inputRef = useRef(null)
-
+        const formRef = useRef(null)
         useEffect(()=>{
             inputRef.current.focus()
+        })
+        
+
+        // closes update form on click outside of the element
+        useEffect(()=>{
+            const handleClickOutside = (event)=>{
+                if (!formRef.current.contains(event.target)){
+                    setTodos(todos.map((item)=>{
+                        if (item.id===todo.id){
+                            return {
+                                ...item, edit: !item.edit
+                            }
+                        }
+                        return item
+                    }))
+                }
+            }
+            document.addEventListener("click", handleClickOutside)
+            return ()=>{
+                document.removeEventListener("click", handleClickOutside)
+            }
         })
 
         const handleChange = e => {
@@ -25,7 +46,7 @@ function UpdateForm({todo, todos, setTodos}) {
         }
 
     return (
-        <li className="todo-item">
+        <li className="todo-item" ref={formRef}>
             <form className= "update-form" onSubmit={handleUpdate}> 
                 <input type="text" className="update-input" ref={inputRef} value={input} onChange={handleChange}/>
                 <button className="update-btn">
@@ -37,21 +58,3 @@ function UpdateForm({todo, todos, setTodos}) {
 }
 
 export default UpdateForm
-
-
-
-    // const handleClickOutside = (event) =>{
-            //     if (updateFormRef.current && !updateFormRef.current.contains(event.target)){
-            //         setTodos(todos.map((item)=>{
-            //             if (item.id===todo.id){
-            //                 return {
-            //                     ...item, edit: !item.edit
-            //                 }
-            //             }
-            //             return item
-            //         }))
-            //     }
-            // }
-            // document.addEventListener("click", ()=>{console.log("click");})
-            // return document.removeEventListener('click', ()=>{console.log("click");})
-            
